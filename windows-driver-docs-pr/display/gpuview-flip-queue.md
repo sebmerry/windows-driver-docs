@@ -12,7 +12,9 @@ The following diagram represents just over three frames of data. With this snaps
 
 :::image type="content" source="images/flip-queue.png" alt-text="Screenshot of Flip Queue in GPUView UI.":::
 
-The thing to notice with the Flip Queues is that it is broken up into a solid-color section and a crosshatched section. The solid-color section represents the time when the application (in this case DWM) is working to produce the content that needs to be displayed. The crosshatched section represents the idle time that the data waits for the flip moment (the VSync).
+The thing to notice with the Flip Queues is that it is broken up into a solid-color section and a crosshatched section. The solid-color section represents the time when the application (in this case DWM) is working to produce the content that needs to be displayed. The crosshatched section represents the idle time that the data waits for the flip moment (the VSync). The color indicates how application data was presented. 
+- Yellow indicates Advanced Direct Flip presents, where the application's buffer was directly scanned out (and potentially scribbled on by DWM)
+- Orange hash marks indicate DWM presented its own swapchain buffer, so the application was composed.
 
 Zooming in on the center frame shows the alignment to the VSyncs.
 
